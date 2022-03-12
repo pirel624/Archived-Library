@@ -85,6 +85,10 @@ class fractional
 	
 	static fractional addition(fractional& A, fractional& B)
 	{
+		//Simplification before doing actual arithmetics
+		A.Simplify();
+		B.Simplify;
+		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getDenumerator();
 		long int Numerator   =  A.getNumerator() * B.getDenumerator() + B.getNumerator() * A.getDenumerator();
@@ -99,6 +103,10 @@ class fractional
 	
 	static fractional substraction(fractional& A, fractional& B)
 	{
+		//Simplification before doing actual arithmetics
+		A.Simplify();
+		B.Simplify;
+		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getDenumerator();
 		long int Numerator   =  A.getNumerator() * B.getDenumerator() - B.getNumerator() * A.getDenumerator();
@@ -113,6 +121,10 @@ class fractional
 	
 	static fractional multiplication(fractional& A, fractional& B)
 	{
+		//Simplification before doing actual arithmetics
+		A.Simplify();
+		B.Simplify;
+		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getDenumerator();
 		long int Numerator   =  A.getNumerator() * B.getNumerator();
@@ -127,6 +139,10 @@ class fractional
 	
 	static fractional division(fractional& A, fractional& B)
 	{
+		//Simplification before doing actual arithmetics
+		A.Simplify();
+		B.Simplify;
+		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getNumerator();
 		long int Numerator   = A.getNumerator() * B.getDenumerator();
