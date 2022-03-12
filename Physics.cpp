@@ -87,7 +87,7 @@ class fractional
 	{
 		//Simplification before doing actual arithmetics
 		A.Simplify();
-		B.Simplify;
+		B.Simplify();
 		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getDenumerator();
@@ -105,7 +105,7 @@ class fractional
 	{
 		//Simplification before doing actual arithmetics
 		A.Simplify();
-		B.Simplify;
+		B.Simplify();
 		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getDenumerator();
@@ -123,7 +123,7 @@ class fractional
 	{
 		//Simplification before doing actual arithmetics
 		A.Simplify();
-		B.Simplify;
+		B.Simplify();
 		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getDenumerator();
@@ -141,7 +141,7 @@ class fractional
 	{
 		//Simplification before doing actual arithmetics
 		A.Simplify();
-		B.Simplify;
+		B.Simplify();
 		
 		// Addition Algorithm
 		long int Denumerator = A.getDenumerator() * B.getNumerator();
