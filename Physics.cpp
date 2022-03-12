@@ -8,7 +8,21 @@ TO DO LIST :
 
 /*
 ERROR:
-	1. Something wrong with multipilcation
+	1.   	Pembilang pecahan 1                                     : 9
+		Penyebut pecahan 1                                      : 3
+		Pembilang pecahan 1                                     : 64
+		Penyebut pecahan 1                                      : 16
+		Masukkan operator (case sensitive)      : perkalian
+		Hasil dari operasi                   : 36/1
+		Apakah pecahan 1 dan 2 nilainya sama : 0
+
+		Pembilang pecahan 1                                     : 9
+		Penyebut pecahan 1                                      : 3
+		Pembilang pecahan 1                                     : 64
+		Penyebut pecahan 1                                      : 16
+		Masukkan operator (case sensitive)      : penjumlahan
+		Hasil dari operasi                   : 1033/16
+		Apakah pecahan 1 dan 2 nilainya sama : 0
 	
 */
 
