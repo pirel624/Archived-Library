@@ -130,8 +130,8 @@ class fractional
 	static fractional division(fractional& A, fractional& B)
 	{
 		// Addition Algorithm
-		long int Denumerator = A.getNumerator() * B.getDenumerator();
-		long int Numerator   = B.getNumerator() * A.getDenumerator();
+		long int Denumerator = A.getDenumerator() * B.getNumerator();
+		long int Numerator   = A.getNumerator() * B.getDenumerator();
 		fractional return_value = fractional(Numerator, Denumerator);
 		
 		// Simplification Algorithm
