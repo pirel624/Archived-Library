@@ -1,5 +1,16 @@
 #include <iostream>
+#include <string>
 
+/*
+TO DO LIST :
+	
+*/	   
+
+/*
+ERROR:
+	1. Something wrong with multipilcation
+	
+*/
 
 class fractional
 {
@@ -13,9 +24,6 @@ class fractional
 		Nominator = nom;
 		Denominator = denom;
 	}
-	
-	void setNominator(long int x){Nominator = x;}											// Creating the fraction value manually
-	void setDenominator(long int x){Denominator = x;}
 	
 	public://///////////////////////////////////////////////////PUBLIC//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
@@ -46,10 +54,21 @@ class fractional
 	
 	void Simplify()
 	{
-		long int GCD = GreatestCommonDivisor(Nominator, Denominator);     // Find GreatestCommonDivisor
-		Nominator = Nominator / GCD;												// Use it to divide both the numerator and denumerator
-		Denominator = Denominator / GCD;
+		long int GCD = GreatestCommonDivisor(Nominator, Denominator);     	// Find GreatestCommonDivisor
+		if(GCD == 0)
+		{
+			/*if so, it only means that the numerator and denumerator are valued 0, which result a zero division error; so, do nothing*/
+			/*it also means that both the numerator and denumerator are valued 0, an undefined mathematical concept, so let it be like that, (0/0)*/
+		}
+		else
+		{
+			Denominator = Denominator / GCD;
+			Nominator = Nominator / GCD;									  	// Use it to divide both the numerator and denumerator
+		}
 	}
+	
+	void setNominator(long int x){Nominator = x;}											// Creating the fraction value manually
+	void setDenominator(long int x){Denominator = x;}
 	
 	long int getNumerator()
 	{
@@ -156,14 +175,29 @@ class fractional
 
 int main()
 {
-	
-	fractional Pecahan1 = fractional(45, 5); 
-	fractional Pecahan2 = fractional(15, 5);
-	fractional Pecahan3 = Pecahan1 + Pecahan2;
-	
-	std::cout << Pecahan3.getNumerator() << "/" << Pecahan3.getDenumerator() << std::endl;
-	
-	while(true){}
+	while(true) // Yes, its not efficient coding, but its readable coding, so fuck it
+	{
+		fractional Pecahan1; 
+		fractional Pecahan2; 
+		fractional Pecahan3;
+		std::string operation; 	
+		
+		std::cout << "Pembilang pecahan 1 					: ";{int a; std::cin >> a; Pecahan1.setNominator(a);}
+		std::cout << "Penyebut pecahan 1  					: ";{int a; std::cin >> a; Pecahan1.setDenominator(a);}
+		std::cout << "Pembilang pecahan 1 					: ";{int a; std::cin >> a; Pecahan2.setNominator(a);}
+		std::cout << "Penyebut pecahan 1  					: ";{int a; std::cin >> a; Pecahan1.setDenominator(a);}
+		std::cout << "Masukkan operator (case sensitive)   	: ";std::cin >> operation;
+		
+		if(operation == "penjumlahan"){Pecahan3 = Pecahan1 + Pecahan2;}
+		else if(operation == "pengurangan"){Pecahan3 = Pecahan1 - Pecahan2;}
+		else if(operation == "perkalian"){Pecahan3 = Pecahan1 * Pecahan2;}
+		else if(operation == "pembagian"){Pecahan3 = Pecahan1 / Pecahan2;}
+		else{Pecahan3.setNominator(0), Pecahan3.setDenominator(0);}
+		
+		std::cout << "Hasil dari operasi                   : " << Pecahan3.getNumerator() << "/" << Pecahan3.getDenumerator() << std::endl;
+		std::cout << "Apakah pecahan 1 dan 2 nilainya sama : " << (Pecahan1 == Pecahan2) << std::endl << std::endl;
+		
+	}
 	
 	return 0;
 }
