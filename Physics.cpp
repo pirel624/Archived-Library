@@ -135,6 +135,10 @@ class fractional
 	{
 		return division(*this, A);
 	}
+	bool operator==(fractional& A)
+	{
+		return isequal(*this, A);
+	}
 };
 
 int main()
