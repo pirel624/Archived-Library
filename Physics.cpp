@@ -1,26 +1,5 @@
 #include <iostream>
 
-/*
-TO DO LIST :
-	1. Implement euclidian algorithm
-	2. Find a way to simplify fractional
-
-ASSUMED AXIOM:
-	1. If there are two fractional, a and b, and they have been reduced to its simplest form, then if
-	   a and b are different in form (regarding nominator and denominator), a and b are not equal. So too apply the vice versa
-
-*/	   
-
-/*
-ERROR:
-	
-
-/*
-FPB dari 128 dan 64 adalah 64
-	1. 128 - 64 = 64 >> 64
-FPB dari 256 dan 16 adalah 16
-	1. 256 - 16 = 240
-*/
 
 class fractional
 {
@@ -140,31 +119,34 @@ class fractional
 		// Return it
 		return return_value;
 	}
+	fractional operator+(fractional& A)
+	{
+		return addition(*this, A);
+	}
+	fractional operator-(fractional& A)
+	{
+		return substraction(*this, A);
+	}
+	fractional operator*(fractional& A)
+	{
+		return multiplication(*this, A);
+	}
+	fractional operator/(fractional& A)
+	{
+		return division(*this, A);
+	}
 };
 
 int main()
 {
 	
-	fractional Pecahan1 = fractional(45, 5); std::cout << "1 Done" << std::endl;
-	fractional Pecahan2 = fractional(15, 5);std::cout << "2 Done" << std::endl;
-	fractional Pecahan3 = fractional::division(Pecahan1, Pecahan2);std::cout << "3 Done" << std::endl;
+	fractional Pecahan1 = fractional(45, 5); 
+	fractional Pecahan2 = fractional(15, 5);
+	fractional Pecahan3 = Pecahan1 + Pecahan2;
 	
-	std::cout << Pecahan3.getNumerator() << "/" << Pecahan3.getDenumerator() << std::endl; std::cout << "4 Done" << std::endl;
-	//std::cout << Pecahan1.getNumerator() << "/" << Pecahan1.getDenumerator() << std::endl; std::cout << "4 Done" << std::endl;
-	
+	std::cout << Pecahan3.getNumerator() << "/" << Pecahan3.getDenumerator() << std::endl;
 	
 	while(true){}
-	
-	
-	/*int number1;
-	int number2;
-	
-	while(true)
-	{
-		std::cout << " Bilangan 1 : "; std::cin >> number1; std::cout << std::endl;
-		std::cout << " Bilangan 2 : "; std::cin >> number2; std::cout << std::endl;
-		std::cout << "Faktor Pembagian Terbesar : " << fractional::GreatestCommonDivisor(number1, number2) << std::endl;
-	}*/
 	
 	return 0;
 }
