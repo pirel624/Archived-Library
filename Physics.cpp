@@ -119,6 +119,19 @@ class fractional
 		// Return it
 		return return_value;
 	}
+	
+	static bool isequal(fractional& A, fractional& B)
+	{
+		long int a, b, c, d;
+		a = A.getNumerator();
+		b = A.getDenumerator();
+		c = B.getNumerator();
+		d = B.getDenumerator();
+		
+		if((a == c) && (b == d)){return true;}
+		else{return false;}
+	}
+	
 	fractional operator+(fractional& A)
 	{
 		return addition(*this, A);
