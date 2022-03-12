@@ -13,7 +13,7 @@ ASSUMED AXIOM:
 
 /*
 ERROR:
-	1. Fractional division is still wrong
+	
 
 /*
 FPB dari 128 dan 64 adalah 64
