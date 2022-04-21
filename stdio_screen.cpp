@@ -39,15 +39,15 @@ class matrix
         {
             for(int x = 0; x <= X_SIZE; x++)
             {
-		if(y == 0 || y == Y_SIZE){std::cout << '#';}
-		else
-		{
-			if(x == 0 || x == X_SIZE){std::cout << '#';}
-			else{std::cout << character_map[x][y];}
+				if(y == 0 || y == Y_SIZE){std::cout << '#';}
+				else
+				{
+					if(x == 0 || x == X_SIZE){std::cout << '#';}
+					else{std::cout << ' ' << character_map[x][y];}
+				}
+			}
+			std::cout << '\n';
 		}
-            }
-            std::cout << '\n';
-        }
     }
 
     bool edit(int pos_x, int pos_y, char character)
@@ -70,10 +70,11 @@ class matrix
 int main()
 {
 	matrix screen;
+	screen.edit(2, 3, '@');
 	while(true)
 	{
 		matrix::window_clear_screen();
-		screen.clean();
+		//screen.clean();
 		screen.display();
 	}
 
