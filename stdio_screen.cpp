@@ -35,19 +35,31 @@ class matrix
 
     void display()
     {
-        for(int y = 0; y <= Y_SIZE; y++)
+        //Upper Border
+        for(int up = 0; up < X_SIZE + 2; up++)
         {
-            for(int x = 0; x <= X_SIZE; x++)
+            std::cout << '#';
+        }
+        std::cout << '\n';
+
+        //Body
+        for(int y = 0; y < Y_SIZE; y++)
+        {
+            std::cout << '#';                       //Left Border
+            for(int x = 0; x < X_SIZE; x++)
             {
-				if(y == 0 || y == Y_SIZE){std::cout << '#';}
-				else
-				{
-					if(x == 0 || x == X_SIZE){std::cout << '#';}
-					else{std::cout << ' ' << character_map[x][y];}
-				}
+				std::cout << character_map[x][y];
 			}
-			std::cout << '\n';
+            std::cout << '#';                       //Right Border
+			std::cout << '\n';                      //New Line
 		}
+
+        //Lower Border
+        for(int down = 0; down < X_SIZE + 2; down++)
+        {
+            std::cout << '#';
+        }
+        std::cout << '\n';
     }
 
     bool edit(int pos_x, int pos_y, char character)
