@@ -1,0 +1,106 @@
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <chrono>
+#include <thread>
+
+#define PI 3.14159265
+
+class Vector2           // # Built for Precision
+{
+    private:
+    double x = 0;
+    double y = 0;
+    bool IsNormalized = false;
+
+    public:
+    Vector2()
+    {
+        // do nothing
+    }
+
+    void normalize()
+    {
+        double length;
+        length = std::sqrt((x * x) + (y * y));
+        x /= length;
+        y /= length;
+        IsNormalized = true;
+    }
+
+    double GetX(){return x;}
+    double GetY(){return y;}
+    bool IsNormal(){return IsNormalized;}
+
+    void ChangeX(double value)
+    {
+        x = value;
+        IsNormalized = false;
+    }
+
+    void ChangeY(double value)
+    {
+        y = value;
+        IsNormalized = false;
+    }
+};
+
+
+class bullet
+{
+    private:
+    int PosX;
+    int PosY;
+    Vector2 DirectionVector;
+    int Speed;                                  // pixel per milisecond
+    int Lifespan;                               // in milisecond
+
+    public:
+
+    bullet(int X = 100, int Y = 100, int speed = 1, int lifespan = 3000, int direction_degree = 180)
+    {
+        PosX = X;
+        PosY = Y;
+        Speed = speed;
+        Lifespan = lifespan;
+        DirectionVector.ChangeX(std::cos(direction_degree * 180 / PI));     /// is it supposed to be in radian ?1?1!!?!?!?!?!?
+        DirectionVector.ChangeY(-(std::sin(direction_degree * 180 / PI)));
+        DirectionVector.normalize();
+    }
+
+    void AgeBullet(int time)    /////////////////////////////////// This Function might be broken ////////////
+    {
+        // Change position according to speed and trajectory and time changes
+        PosX += DirectionVector.GetX() * Speed * time;
+        PosY += DirectionVector.GetY() * Speed * time;
+
+        // Reduce Lifespan
+        Lifespan -= time;
+    }
+
+    int GetX(){return PosX;}
+    int GetY(){return PosY;}
+    int GetLifespan(){return Lifespan;}
+};
+
+
+
+int main()
+{
+    bullet peluru;
+
+    while(true)
+    {
+        system("cls");
+        std::cout << "X = " << peluru.GetX() << std::endl;
+        std::cout << "Y = " << peluru.GetY() << std::endl;
+        std::cout << "Lifespan = " << peluru.GetLifespan() << std::endl;
+        peluru.AgeBullet(20);
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    }
+    
+    std::cin.get();
+
+    return 0;
+}
